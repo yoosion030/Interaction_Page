@@ -1,3 +1,8 @@
+@font-face {
+    font-family: AppleEB;
+    src: url(/font/AppleSDGothicNeoEB.ttf);
+}
+
 html {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
@@ -10,12 +15,14 @@ body {
     background: white;
 }
 
+
 p {
     line-height: 1.6;
 }
 
 .global-nav {
     height: 44px;
+    padding: 0 1rem;
 }
 
 .global-nav-links {
@@ -24,6 +31,7 @@ p {
 
 .local-nav {
     height: 52px;
+    padding: 0 1rem;
     border-bottom: 1px solid #ddd;
 }
 
@@ -38,11 +46,53 @@ p {
 
 .product-name {
     margin-right: auto;
-    font-size: 18px;
+    font-size: 1.4rem;
     font-weight: bold;
 }
 
 .local-nav-item {
-    margin-left: 22px;
-    font-size: 12px;
+    margin-left: 2em;
+    font-size: 0.8rem;
+}
+
+.scroll-section {
+    padding-top: 50vh;
+}
+
+#scroll-section-0 h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.main-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    font-size: 2.5rem;
+    margin: 5px 0;
+}
+
+.main-message h1 {
+    font-family: AppleEB;
+}
+
+.main-message p {
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #888;
+    padding: 0 1rem;
+}
+
+.description strong {
+    font-size: 3rem;
+    color: rgb(29, 29, 31);
+    font-family: AppleEB;
+    float: left;
+    margin-right: 0.2rem;
 }
