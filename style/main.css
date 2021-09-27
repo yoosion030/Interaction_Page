@@ -94,5 +94,54 @@ p {
     color: rgb(29, 29, 31);
     font-family: AppleEB;
     float: left;
-    margin-right: 0.2rem;
+    margin-right: 0.2em;
+}
+
+#scroll-section-2 .main-message {
+    font-family: AppleEB;
+    font-size: 3.5rem;
+}
+
+.main-message small {
+    font-family: AppleEB;
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5em;
+}
+
+.desc-message{
+    font-weight: bold;
+    width: 50%;
+}
+
+.pin {
+    width: 1px;
+    height: 100px;
+    background-color: rgb(29, 29, 31);
+}
+
+.mid-message {
+    font-size: 2rem;
+    color:#888;
+    padding: 0 1rem;
+}
+
+.mid-message strong {
+    font-family: AppleEB;
+    color: rgb(29, 29, 31);
+}
+
+.canvas-caption {
+    color:#888;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7rem;
+    color: white;
+    background-color: darkorange;
 }
