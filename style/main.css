@@ -15,7 +15,6 @@ body {
     background: white;
 }
 
-
 p {
     line-height: 1.6;
 }
@@ -71,10 +70,27 @@ p {
     height: 3em;
     font-size: 2.5rem;
     margin: 5px 0;
+    font-family: AppleEB;
 }
 
-.main-message h1 {
+#scroll-section-0 h1 {
     font-family: AppleEB;
+}
+
+
+.sticky {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+}
+#show-scene-0 #scroll-section-0 .sticky,
+#show-scene-1 #scroll-section-1 .sticky,
+#show-scene-2 #scroll-section-2 .sticky,
+#show-scene-3 #scroll-section-3 .sticky {
+    display: block;
 }
 
 .main-message p {
@@ -100,12 +116,10 @@ p {
 }
 
 #scroll-section-2 .main-message {
-    font-family: AppleEB;
     font-size: 3.5rem;
 }
 
 .main-message small {
-    font-family: AppleEB;
     display: block;
     font-size: 1.2rem;
     margin-bottom: 0.5em;
@@ -154,7 +168,7 @@ footer {
 
 @media screen and (min-width: 1024px) {
     #scroll-section-0 h1 {
-        font-size: 9vw;
+        font-size: 8vw;
     }
 
     .main-message {
