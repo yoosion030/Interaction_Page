@@ -16,7 +16,7 @@
                 messageD: document.querySelector('#scroll-section-0 .main-message .d'),
             },
             values: {
-                // messageA_opacity = [0, 1],
+                messageA_opacity: [0, 1],
             },
         },
         { //1
@@ -63,16 +63,29 @@
         }
     }
 
+    function calcValues(values, currentYOffset) {
+        let rv;
+        return rv;
+    }
 
     function playAnimation() {
+        const objs = sceneInfo[currentScene].objs;
+        const values = sceneInfo[currentScene].values;
+        const currentYOfset = yOffset - prevScrollHeight;
         switch (currentScene) {
             case 0:
+                let messageA_opacity_0 = values.messageA_opacity[0];
+                let messageA_opacity_1 = values.messageA_opacity[1];
+                console.log(calcValues(values.messageA_opacity, currentYOffset));
                 break;
             case 1:
+                calcValues();
                 break;
             case 2:
+                calcValues();
                 break;
             case 3:
+                calcValues();
                 break;
         }
     }
