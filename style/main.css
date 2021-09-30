@@ -86,15 +86,14 @@ p {
     font-family: AppleEB;
 }
 
-
 .sticky {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    
 }
+
 #show-scene-0 #scroll-section-0 .sticky,
 #show-scene-1 #scroll-section-1 .sticky,
 #show-scene-2 #scroll-section-2 .sticky,

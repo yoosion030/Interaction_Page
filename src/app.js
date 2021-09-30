@@ -9,8 +9,15 @@
             heightNum: 5, // 브라우저 높이의 5배로 scrollHeight 세팅
             scrollHeight: 0,
             objs: {
-                container: document.querySelector('#scroll-section-0')
-            }
+                container: document.querySelector('#scroll-section-0'),
+                messageA: document.querySelector('#scroll-section-0 .main-message .a'),
+                messageB: document.querySelector('#scroll-section-0 .main-message .b'),
+                messageC: document.querySelector('#scroll-section-0 .main-message .c'),
+                messageD: document.querySelector('#scroll-section-0 .main-message .d'),
+            },
+            values: {
+                // messageA_opacity = [0, 1],
+            },
         },
         { //1
             type: 'normal',
@@ -44,6 +51,30 @@
             sceneInfo[i].scrollHeight = sceneInfo[i].heightNum * window.innerHeight;
             sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`;
         }
+
+        let totalScrollHeight = 0;
+        yOffset = window.pageYOffset;
+        for (let i = 0; i < sceneInfo.length; i++) {
+            totalScrollHeight += sceneInfo[i].scrollHeight;
+            if (totalScrollHeight >= yOffset) {
+                currentScene = i;
+                break;
+            }
+        }
+    }
+
+
+    function playAnimation() {
+        switch (currentScene) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
     }
 
     function scrollLoop() {
@@ -53,20 +84,21 @@
         }
         if (yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight) {
             currentScene++;
+            document.body.setAttribute('id', `show-scene-${currentScene}`);
         }
         if (yOffset < prevScrollHeight) {
-            if(currentScene == 0) return; // 브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지
+            if (currentScene === 0) return; // 브라우저 바운스 효과로 인해 마이너스가 되는 것을 방지
             currentScene--;
+            document.body.setAttribute('id', `show-scene-${currentScene}`);
         }
-        console.log(prevScrollHeight);
+        playAnimation();
     }
 
-    window.addEventListener('resize', setLayout);
     window.addEventListener('scroll', () => {
         yOffset = window.pageYOffset;
         scrollLoop();
     });
-
-    setLayout();
+    window.addEventListener('resize', setLayout);
+    window.addEventListener('DOMContentLoaded', setLayout);
 
 })();
