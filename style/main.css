@@ -80,6 +80,7 @@ p {
     font-size: 2.5rem;
     margin: 5px 0;
     font-family: AppleEB;
+    opacity: 0;
 }
 
 #scroll-section-0 h1 {

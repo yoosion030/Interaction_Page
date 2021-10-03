@@ -10,10 +10,10 @@
             scrollHeight: 0,
             objs: {
                 container: document.querySelector('#scroll-section-0'),
-                messageA: document.querySelector('#scroll-section-0 .main-message .a'),
-                messageB: document.querySelector('#scroll-section-0 .main-message .b'),
-                messageC: document.querySelector('#scroll-section-0 .main-message .c'),
-                messageD: document.querySelector('#scroll-section-0 .main-message .d'),
+                messageA: document.querySelector('#scroll-section-0 .main-message.a'),
+                messageB: document.querySelector('#scroll-section-0 .main-message.b'),
+                messageC: document.querySelector('#scroll-section-0 .main-message.c'),
+                messageD: document.querySelector('#scroll-section-0 .main-message.d'),
             },
             values: {
                 messageA_opacity: [0, 1],
@@ -65,29 +65,34 @@
 
     function calcValues(values, currentYOffset) {
         let rv;
+        // 현재 씬에서 스크롤된 범위를 비율로 구하기
+        let scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight;
+        rv = scrollRatio * (values[1] - values[0]) + values[0];
         return rv;
     }
 
     function playAnimation() {
         const objs = sceneInfo[currentScene].objs;
         const values = sceneInfo[currentScene].values;
-        const currentYOfset = yOffset - prevScrollHeight;
+        const currentYOffset = yOffset - prevScrollHeight;
         switch (currentScene) {
             case 0:
-                let messageA_opacity_0 = values.messageA_opacity[0];
-                let messageA_opacity_1 = values.messageA_opacity[1];
-                console.log(calcValues(values.messageA_opacity, currentYOffset));
+                let messageA_opacity_in = calcValues(values.messageA_opacity, currentYOffset);
+                objs.messageA.style.opacity = messageA_opacity_in;
+                // console.log(messageA_opacity_in);
+                console.log(objs.messageA.style.opacity);
                 break;
             case 1:
-                calcValues();
+                // calcValues();
                 break;
             case 2:
-                calcValues();
+                // calcValues();
                 break;
             case 3:
-                calcValues();
+                // calcValues();
                 break;
         }
+        document.body.setAttribute('id', `show-scene-${currentScene}`);
     }
 
     function scrollLoop() {
