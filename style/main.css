@@ -81,6 +81,7 @@ p {
     margin: 5px 0;
     font-family: AppleEB;
     opacity: 0;
+    top: 35vh;
 }
 
 #scroll-section-0 h1 {
@@ -90,7 +91,6 @@ p {
 .sticky {
     display: none;
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
 }
