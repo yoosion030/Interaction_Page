@@ -28,7 +28,7 @@
         },
         { //1
             type: 'normal',
-            heightNum: 5,
+            heightNum: 2,
             scrollHeight: 0,
             objs: {
                 container: document.querySelector('#scroll-section-1')
@@ -88,19 +88,13 @@
         const scrollRatio = currentYOffset/scrollHeight; // 현재 씬의 scrollHeight의 비율;
 
         switch (currentScene) {
-            case 0:
-                const messageA_opacity_in = calcValues(values.messageA_opacity_in, currentYOffset); // messageA_opacity_in = rv
-                const messageA_opacity_out = calcValues(values.messageA_opacity_out, currentYOffset); // messageA_opacity_in = rv
-                const messageA_translateY_in = calcValues(values.messageA_translateY_in, currentYOffset);
-                const messageA_translateY_out = calcValues(values.messageA_translateY_out, currentYOffset); 
-                
+            case 0:                
                 if(scrollRatio <= 0.22){ // in
-                    objs.messageA.style.opacity = messageA_opacity_in; // 스크롤 비율의 값을 opacity값에 대입
-                    objs.messageA.style.transform = `translateY(${messageA_translateY_in}%)`;
+                    objs.messageA.style.opacity =calcValues(values.messageA_opacity_in, currentYOffset); // 스크롤 비율의 값을 opacity값에 대입
+                    objs.messageA.style.transform = `translateY(${calcValues(values.messageA_translateY_in, currentYOffset)}%)`;
                 } else { // out
-                    objs.messageA.style.opacity = messageA_opacity_out;
-                    objs.messageA.style.transform = `translateY(${messageA_translateY_out}%)`;
-                    console.log(messageA_translateY_out);
+                    objs.messageA.style.opacity =calcValues(values.messageA_opacity_out, currentYOffset); 
+                    objs.messageA.style.transform = `translateY(${calcValues(values.messageA_translateY_out, currentYOffset)}%)`;
                 }
                 break;
             case 1:
