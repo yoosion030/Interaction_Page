@@ -45,9 +45,9 @@
 				content: document.querySelector('#scroll-section-1 .description')
 			}
 		},
-        { //1
-            type: 'normal',
-            heightNum: 2,
+        { //2
+            type: 'sticky',
+            heightNum: 5,
             scrollHeight: 0,
             objs: {
 				container: document.querySelector('#scroll-section-2'),
@@ -130,6 +130,7 @@
         const scrollHeight = sceneInfo[currentScene].scrollHeight; // 현재 씬의 높이
         const scrollRatio = currentYOffset/scrollHeight; // 현재 씬의 scrollHeight의 비율;
 
+
         switch (currentScene) {
             case 0:                
                 if (scrollRatio <= 0.22) {
@@ -180,7 +181,7 @@
 				// 	// out
 				// 	objs.canvas.style.opacity = calcValues(values.canvas_opacity_out, currentYOffset);
 				// }
-
+				
 				if (scrollRatio <= 0.25) {
 					// in
 					objs.messageA.style.opacity = calcValues(values.messageA_opacity_in, currentYOffset);
@@ -303,7 +304,7 @@
             document.body.setAttribute('id', `show-scene-${currentScene}`);
         }
 
-        if (enterNewScene) return; // 새로운 페이지에 들어갈 시 함수를 종료함 -> opacity 값이 음수가 나오기 때문에 
+        if (enterNewScene)return; // 새로운 페이지에 들어갈 시 함수를 종료함 -> opacity 값이 음수가 나오기 때문에 
         playAnimation();
     }
 

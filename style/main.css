@@ -100,6 +100,7 @@ p {
 #show-scene-2 #scroll-section-2 .sticky,
 #show-scene-3 #scroll-section-3 .sticky {
     display: block;
+    opacity: 0;
 }
 
 .main-message p {
