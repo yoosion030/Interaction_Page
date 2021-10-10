@@ -201,8 +201,12 @@
             case 2:
 				let sequence2 = parseInt(calcValues(values.imageSequence, currentYOffset));
 				objs.context.drawImage(objs.videoImages[sequence2],0,0);
-				objs.canvas.style.opacity = calcValues(values.canvas_opacity, currentYOffset); // 캔버스 투명도 지정
 
+				if (scrollRatio <= 0.5) {
+					objs.canvas.style.opacity = calcValues(values.canvas_opacity_in,currentYOffset);
+				} else {
+					objs.canvas.style.opacity = calcValues(values.canvas_opacity_out,currentYOffset);
+				}
 				if (scrollRatio <= 0.25) {
 					// in
 					objs.messageA.style.opacity = calcValues(values.messageA_opacity_in, currentYOffset);
