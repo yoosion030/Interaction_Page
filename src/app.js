@@ -15,8 +15,13 @@
                 messageB: document.querySelector('#scroll-section-0 .main-message.b'),
                 messageC: document.querySelector('#scroll-section-0 .main-message.c'),
                 messageD: document.querySelector('#scroll-section-0 .main-message.d'),
+				canvas: document.querySelector('#video-canvas-0'),
+				context: document.querySelector('#video-canvas-0').getContext('2d'),
+				videoImages: []
             },
             values: {
+				videoImageCount: 300,
+				imageSequence: [0, 299],
                 messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
 				messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
 				messageC_opacity_in: [0, 1, { start: 0.5, end: 0.6 }],
@@ -95,6 +100,15 @@
         }
     ];
 
+
+	function setCanvasImages(){
+		let imgElem;
+		for (let i = 0; i < sceneInfo[0].values.videoImageCount; i++) {
+			imgElem = new Image();
+			imgElem.src = `./images/IMG_${6726 + i}.JPG`;
+			sceneInfo[0].objs.videoImages.push(imgElem);
+		}
+	}
     function calcValues(values, currentYOffset) {
         let rv;
         // 현재 씬에서 스크롤된 범위를 비율로 구하기
@@ -132,7 +146,9 @@
 
 
         switch (currentScene) {
-            case 0:                
+            case 0:   
+			    let sequence = parseInt(calcValues(values.imageSequence, currentYOffset));
+				objs.context.drawImage(objs.videoImages[sequence],0,0);
                 if (scrollRatio <= 0.22) {
                     // in
                     objs.messageA.style.opacity = calcValues(values.messageA_opacity_in, currentYOffset);
@@ -278,7 +294,7 @@
         let totalScrollHeight = 0; // 전체 scrollHeight 값
         yOffset = window.pageYOffset;
         for (let i = 0; i < sceneInfo.length; i++) {
-            totalScrollHeight += sceneInfo[i].scrollHeight; // 
+            totalScrollHeight += sceneInfo[i].scrollHeight; 
             if (totalScrollHeight >= yOffset) {
                 currentScene = i;
                 break;
@@ -314,5 +330,7 @@
     });
     window.addEventListener('resize', setLayout);
     window.addEventListener('DOMContentLoaded', setLayout);
+
+	setCanvasImages();
 
 })();

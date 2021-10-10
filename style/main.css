@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
     color: rgb(29, 29, 31);
     letter-spacing: -0.05em;
-    background: white;
 }
 
 p {
@@ -25,6 +24,8 @@ p {
     left: 0;
     width: 100%;
     height: 44px;
+    z-index: 10;
+
     padding: 0 1rem;
 }
 
@@ -40,6 +41,7 @@ p {
     height: 52px;
     padding: 0 1rem;
     border-bottom: 1px solid #ddd;
+    z-index: 10;
 }
 
 .global-nav-links,
@@ -95,12 +97,17 @@ p {
     width: 100%;
 }
 
+.sticky-canvas {
+    top: 0;
+    height: 100%;
+}
+
+
 #show-scene-0 #scroll-section-0 .sticky,
 #show-scene-1 #scroll-section-1 .sticky,
 #show-scene-2 #scroll-section-2 .sticky,
 #show-scene-3 #scroll-section-3 .sticky {
     display: block;
-    opacity: 0;
 }
 
 .main-message p {
@@ -219,7 +226,7 @@ footer {
         top: 20%;
         left: 53%;
     }
-    
+
     #scroll-section-2 .c {
         left: 55%;
     }
