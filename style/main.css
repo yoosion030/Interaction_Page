@@ -65,6 +65,7 @@ p {
 
 .scroll-section {
     padding-top: 50vh;
+    border: 3px solid red;
 }
 
 #scroll-section-0 h1 {
@@ -151,6 +152,7 @@ p {
 .desc-message {
     font-weight: bold;
     width: 50%;
+    opacity: 0;
 }
 
 .pin {
